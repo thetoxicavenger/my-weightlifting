@@ -1,21 +1,38 @@
 var express = require('express');
 var router = express.Router();
-const { getAllPrograms, getProgram, getProgramWorkouts, addNewProgram, editProgram } = require('../controllers/programs')
-const { getWorkoutExercises } = require('../controllers/workouts')
-const { getAllExercises, getExercise } = require('../controllers/exercises')
+const programsController = require('../controllers/programs')
+const workoutsController = require('../controllers/workouts')
+const exercisesController = require('../controllers/exercises')
+
 
 /* PROGRAMS */
-router.get('/programs', getAllPrograms)
-router.get('/programs/:id', getProgram)
-router.get('/programs/:id/workouts', getProgramWorkouts)
-router.post('/programs', addNewProgram)
-router.patch('/programs/:id', editProgram)
+router.get('/programs', programsController.getAllPrograms)
+router.post('/programs', programsController.addNewProgram)
+
+router.get('/programs/:programId', programsController.getProgram)
+router.patch('/programs/:programId', programsController.editProgram)
+router.delete('/programs/:programId', programsController.deleteProgram)
+
+router.get('/programs/:programId/workouts', programsController.getProgramWorkouts)
+
 
 /* WORKOUTS */
-router.get('/workouts/:id/exercises', getWorkoutExercises)
+router.get('/workouts', workoutsController.getAllWorkouts)
+router.post('/workouts', workoutsController.addWorkout)
+
+router.get('/workouts/:workoutId', workoutsController.getWorkout)
+router.patch('/workouts/:workoutId', workoutsController.editWorkout)
+router.delete('/workouts/:workoutId', workoutsController.deleteWorkout)
+
+router.get('/workouts/:workoutId/exercises', workoutsController.getWorkoutExercises)
+
 
 /* EXERCISES */
-router.get('/exercises', getAllExercises)
-router.get('/exercises/:id', getExercise)
+router.get('/exercises', exercisesController.getAllExercises)
+router.post('/exercises', exercisesController.addExercise)
+
+router.get('/exercises/:exerciseId', exercisesController.getExercise)
+router.patch('/exercises/:exerciseId', exercisesController.editExercise)
+router.delete('/exercises/:exerciseId', exercisesController.deleteExercise)
 
 module.exports = router;

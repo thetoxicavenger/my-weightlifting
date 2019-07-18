@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
           {
             name: 'Day 1',
             img: 'https://static-s.aa-cdn.net/img/ios/1121042545/bcdf9e6b1a0223b37e57de428c63dfb1?v=1',
-            program_id: 1
+            program_id: null
           },
           {
             name: 'Day 2',
