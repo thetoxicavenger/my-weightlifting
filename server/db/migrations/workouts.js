@@ -4,7 +4,6 @@ exports.up = function(knex) {
       table.increments('id')
       table.string('name')
       table.string('img')
-      table.integer('program_id').defaultTo(null)
     })
   };
   

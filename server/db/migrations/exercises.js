@@ -6,7 +6,6 @@ exports.up = function(knex) {
       table.integer('sets')
       table.integer('reps')
       table.string('img')
-      table.integer('workout_id').defaultsTo(null)
     })
   };
   
