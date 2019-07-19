@@ -1,9 +1,9 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('workouts_exercises', table => {
-      table.increments('id').notNullable()
-      table.integer('workout_id')
-      table.integer('exercise_id')
+      table.increments('id').notNullable().primary()
+      table.integer('workout_id').notNullable()
+      table.integer('exercise_id').notNullable()
     })
   };
   
