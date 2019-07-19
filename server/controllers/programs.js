@@ -30,7 +30,7 @@ exports.deleteProgram = async function (req, res) {
 }
 
 exports.getProgramWorkouts = async function(req, res) {
-    const workouts = await knex('workouts').where('program_id', req.params.programId)
+    const workouts = await knex('programs_workouts').where('program_id', req.params.programId).join('workouts', 'programs.id', '=', 'workouts.program_id').select('*') // HERE
     res.json(workouts)
 }
 

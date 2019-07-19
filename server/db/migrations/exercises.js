@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('exercises', table => {
-      table.increments('id')
+      table.increments('id').notNullable()
       table.string('name')
       table.integer('sets')
       table.integer('reps')
