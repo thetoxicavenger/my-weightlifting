@@ -6,15 +6,9 @@ exports.getAllPrograms = async function(req, res) {
 }
 
 exports.getProgram = async function(req, res) {
-    const program = await knex('programs').where('id', req.params.id).first().then(program => {
+    const program = await knex('programs').where('id', req.params.programId).first().then(program => {
         res.json(program)
     })
-}
-
-exports.getProgramWorkouts = async function(req, res) {
-    const workouts = await knex('workouts').where('program_id', req.params.id)
-    console.log(workouts)
-    res.json(workouts)
 }
 
 exports.addNewProgram = async function(req, res) {
@@ -24,7 +18,23 @@ exports.addNewProgram = async function(req, res) {
 }
 
 exports.editProgram = async function(req, res) {
-    await knex('programs').where('id', req.params.id).update(req.body).then(() => {
+    await knex('programs').where('id', req.params.programId).update(req.body).then(() => {
         res.sendStatus(200)
     })
+}
+
+exports.deleteProgram = async function (req, res) {
+    await knex('programs').where('id', req.params.programId).del().then(() => {
+        res.sendStatus(200)
+    })
+}
+
+exports.getProgramWorkouts = async function(req, res) {
+    const workouts = await knex('programs_workouts').where('program_id', req.params.programId).join('workouts', 'programs.id', '=', 'workouts.program_id').select('*') // HERE
+    res.json(workouts)
+}
+
+exports.addWorkoutToProgram = async function (req, res) {
+    const workout = await knex('workouts').insert(req.body).returning('*')
+    res.json(workout)
 }
