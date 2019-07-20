@@ -11,10 +11,14 @@ exports.up = function (knex) {
     table.integer('program_id')
       .references('id')
       .inTable('programs')
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE')
 
     table.integer('workout_id')
       .references('id')
       .inTable('workouts')
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE')
 
   })
 };
