@@ -38,5 +38,6 @@ router.patch('/exercises/:exerciseId', exercisesController.editExercise)
 router.delete('/exercises/:exerciseId', exercisesController.deleteExercise)
 
 router.get('/exercises/:exerciseId/programs', exercisesController.getExercisePrograms)
+router.get('/exercises/:exerciseId/workouts', exercisesController.getExerciseWorkouts)
 
 module.exports = router;

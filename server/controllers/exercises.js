@@ -40,3 +40,21 @@ exports.getExercisePrograms = async function (req, res) {
         res.sendStatus(500)
     }
 }
+
+exports.getExerciseWorkouts = async function (req, res) {
+    const parsedIdParam = parseInt(req.params.exerciseId)
+    if (!parsedIdParam) {
+        return res.sendStatus(422)
+    }
+    const joinTable = 'workouts_exercises'
+    const queryParamName = 'exercise_id'
+    try {
+        const programs = await knex(joinTable).where(`${joinTable}.${queryParamName}`, parsedIdParam)
+            .rightOuterJoin('workouts', `${joinTable}.workout_id`, 'workouts.id')
+            .select('workouts.id', 'workouts.img')
+        res.json(programs)
+    } catch (e) {
+        console.error(e)
+        res.sendStatus(500)
+    }
+}
