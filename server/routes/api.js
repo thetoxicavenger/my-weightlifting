@@ -14,6 +14,7 @@ router.patch('/programs/:programId', programsController.editProgram)
 router.delete('/programs/:programId', programsController.deleteProgram)
 
 router.get('/programs/:programId/workouts', programsController.getProgramWorkouts)
+router.get('/programs/:programId/exercises', programsController.getProgramExercises)
 
 
 /* WORKOUTS */

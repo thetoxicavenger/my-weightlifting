@@ -40,3 +40,10 @@ exports.addWorkoutToProgram = async function (req, res) {
     const workout = await knex('workouts').insert(req.body).returning('*')
     res.json(workout)
 }
+
+exports.getProgramExercises = async function (req, res) {
+    const exercises = await knex('programs_exercises').where('program_id', req.params.programId)
+        .rightOuterJoin('exercises', 'exercises.id', 'programs_exercises.exercise_id')
+        .select('exercises.id', 'exercises.name', 'exercises.sets', 'exercises.reps', 'exercises.img')
+    res.json(exercises)
+}
