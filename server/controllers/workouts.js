@@ -26,6 +26,8 @@ exports.deleteWorkout = async function (req, res) {
 }
 
 exports.getWorkoutExercises = async function (req, res) {
-    const exercises = await knex('exercises').where('workout_id', req.params.workoutId)
+    const exercises = await knex('workouts_exercises').where('workout_id', req.params.workoutId)
+        .rightOuterJoin('exercises', 'workouts_exercises.exercise_id', 'exercises.id')
+        .select('exercises.id', 'exercises.name', 'exercises.sets', 'exercises.reps', 'exercises.img')
     res.json(exercises)
 }
