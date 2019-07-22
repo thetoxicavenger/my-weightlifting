@@ -1,6 +1,0 @@
-avoiding many-to-many duplicates
-crud for join tables
-users
-adding unsigned to FKs
-come back and rewrite validation logic for all controllers on positive ints
-i'm probably using the wrong method for creating a many to many record
