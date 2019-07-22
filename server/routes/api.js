@@ -26,6 +26,7 @@ router.patch('/workouts/:workoutId', workoutsController.editWorkout)
 router.delete('/workouts/:workoutId', workoutsController.deleteWorkout)
 
 router.get('/workouts/:workoutId/exercises', workoutsController.getWorkoutExercises)
+router.get('/workouts/:workoutId/programs', workoutsController.getWorkoutPrograms)
 
 
 /* EXERCISES */

@@ -31,3 +31,10 @@ exports.getWorkoutExercises = async function (req, res) {
         .select('exercises.id', 'exercises.name', 'exercises.sets', 'exercises.reps', 'exercises.img')
     res.json(exercises)
 }
+
+exports.getWorkoutPrograms = async function (req, res) {
+    const programs = await knex('programs_workouts').where('programs_workouts.workout_id', req.params.workoutId)
+        .rightOuterJoin('programs', 'programs_workouts.program_id', 'programs.id')
+        .select('programs.id', 'programs.name', 'programs.img')
+    res.json(programs)
+}
