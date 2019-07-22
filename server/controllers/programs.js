@@ -36,9 +36,12 @@ exports.getProgramWorkouts = async function (req, res) {
     res.json(workouts)
 }
 
-exports.addWorkoutToProgram = async function (req, res) {
-    const workout = await knex('workouts').insert(req.body).returning('*')
-    res.json(workout)
+exports.addProgramWorkout = async function (req, res) {
+    await knex('programs_workouts').insert({
+        ...req.body,
+        program_id: req.params.programId
+    }) // TODO no duplicates, check records inserted
+    res.sendStatus(200)
 }
 
 exports.getProgramExercises = async function (req, res) {

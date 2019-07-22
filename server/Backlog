@@ -1,3 +1,4 @@
+avoiding many-to-many duplicates
 crud for join tables
 users
 adding unsigned to FKs
