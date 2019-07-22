@@ -19,6 +19,8 @@ exports.up = function (knex) {
         .inTable('exercises')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
+
+      table.unique(['workout_id', 'exercise_id'])
   
     })
   };

@@ -20,6 +20,8 @@ exports.up = function (knex) {
       .onUpdate('CASCADE')
       .onDelete('CASCADE')
 
+    table.unique(['program_id', 'workout_id'])
+
   })
 };
 
