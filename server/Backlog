@@ -1,4 +1,5 @@
-users
+refactor api router to have separate files for separate entities
 crud for join tables
+users
 adding unsigned to FKs
 come back and rewrite validation logic for all controllers on positive ints\
