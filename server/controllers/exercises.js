@@ -1,5 +1,6 @@
 const knex = require("../db/knex.js");
 
+// exercises
 exports.getAllExercises = async function(req, res) {
     const exercises = await knex('exercises')
     res.json(exercises)
@@ -8,8 +9,6 @@ exports.addExercise = async function(req, res) {
     const exercise = await knex('exercises').insert(req.body).returning('*')
     res.json(exercise)
 }
-
-
 exports.getExercise = async function(req, res) {
     const exercise = await knex('exercises').where('id', req.params.exerciseId).first()
     res.json(exercise)
@@ -23,6 +22,7 @@ exports.deleteExercise = async function (req, res) {
     res.sendStatus(200)
 }
 
+// exercisePrograms
 exports.getExercisePrograms = async function (req, res) {
     const parsedIdParam = parseInt(req.params.exerciseId)
     if (!parsedIdParam) {
@@ -40,7 +40,15 @@ exports.getExercisePrograms = async function (req, res) {
         res.sendStatus(500)
     }
 }
+exports.addExerciseProgram = async function (req, res) {
+    await knex('programs_exercises').insert({
+        exercise_id: req.params.exerciseId,
+        program_id: req.params.programId
+    })
+    res.sendStatus(200)
+}
 
+// exerciseWorkouts
 exports.getExerciseWorkouts = async function (req, res) {
     const parsedIdParam = parseInt(req.params.exerciseId)
     if (!parsedIdParam) {
