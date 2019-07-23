@@ -9,12 +9,12 @@ router.get('/:workoutId', workoutsController.getWorkout)
 router.patch('/:workoutId', workoutsController.editWorkout)
 router.delete('/:workoutId', workoutsController.deleteWorkout)
 
-// workouts_programs
+// workoutPrograms
 router.get('/:workoutId/programs', workoutsController.getWorkoutPrograms)
 router.put('/:workoutId/programs/:programId', workoutsController.addWorkoutProgram)
 router.delete('/:workoutId/programs/:programId', workoutsController.removeWorkoutProgram)
 
-// workouts_exercises
+// workoutExercises
 router.get('/:workoutId/exercises', workoutsController.getWorkoutExercises)
 router.put('/:workoutId/exercises/:exerciseId', workoutsController.addWorkoutExercise)
 router.delete('/:workoutId/exercises/:exerciseId', workoutsController.removeWorkoutExercise)

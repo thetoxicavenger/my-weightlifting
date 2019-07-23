@@ -26,7 +26,7 @@ exports.deleteProgram = async function (req, res) {
     })
 }
 
-// programs_workouts
+// programWorkouts
 exports.getProgramWorkouts = async function (req, res) {
     const workouts = await knex('programs_workouts').where('program_id', req.params.programId)
         .rightOuterJoin('workouts', 'programs_workouts.workout_id', '=', 'workouts.id')
@@ -49,8 +49,7 @@ exports.removeProgramWorkout = async function (req, res) {
     res.sendStatus(200)
 }
 
-
-// programs_exercises
+// programExercises
 exports.getProgramExercises = async function (req, res) {
     const exercises = await knex('programs_exercises').where('program_id', req.params.programId)
         .rightOuterJoin('exercises', 'exercises.id', 'programs_exercises.exercise_id')
