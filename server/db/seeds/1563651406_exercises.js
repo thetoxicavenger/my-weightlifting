@@ -12,12 +12,12 @@ exports.seed = function(knex, Promise) {
           reps: 10,
           img: 'https://www.bodybuilding.com/exercises/exerciseImages/sequences/360/Male/200sq/360_1.jpg'
         },
-        // {
-        //   name: 'Incline Dumbbell Press',
-        //   sets: 4,
-        //   reps: 10,
-        //   img: 'https://www.bodybuilding.com/exercises/exerciseImages/sequences/380/Male/200sq/380_1.jpg'
-        // },
+        {
+          name: 'Incline Dumbbell Press',
+          sets: 4,
+          reps: 10,
+          img: 'https://www.bodybuilding.com/exercises/exerciseImages/sequences/380/Male/200sq/380_1.jpg'
+        },
         // {
         //   name: 'Pullups',
         //   sets: 4,
