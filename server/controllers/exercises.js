@@ -67,7 +67,7 @@ exports.getExerciseWorkouts = async function (req, res) {
     try {
         const programs = await knex(joinTable).where(`${joinTable}.${queryParamName}`, parsedIdParam)
             .rightOuterJoin('workouts', `${joinTable}.workout_id`, 'workouts.id')
-            .select('workouts.id', 'workouts.img')
+            .select('workouts.id', 'workouts.img', 'workouts.name')
         res.json(programs)
     } catch (e) {
         console.error(e)
