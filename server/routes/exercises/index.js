@@ -12,6 +12,7 @@ router.delete('/:exerciseId', exercisesController.deleteExercise)
 // exercisePrograms
 router.get('/:exerciseId/programs', exercisesController.getExercisePrograms)
 router.put('/:exerciseId/programs/:programId', exercisesController.addExerciseProgram)
+router.delete('/:exerciseId/programs/:programId', exercisesController.removeExerciseProgram)
 
 // exerciseWorkouts
 router.get('/:exerciseId/workouts', exercisesController.getExerciseWorkouts)
