@@ -36,6 +36,14 @@ exports.addWorkoutProgram = async function (req, res) {
     })
     res.send(200)
 }
+exports.removeWorkoutProgram = async function (req, res) {
+    await knex('programs_workouts').where({
+        workout_id: req.params.workoutId,
+        program_id: req.params.programId
+    })
+    .del()
+    res.send(200)
+}
 
 // workouts_exercises
 exports.getWorkoutExercises = async function (req, res) {
