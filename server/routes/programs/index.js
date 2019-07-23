@@ -13,6 +13,7 @@ router.delete('/:programId', programsController.deleteProgram)
 router.get('/:programId/workouts', programsController.getProgramWorkouts)
 router.get('/:programId/exercises', programsController.getProgramExercises)
 
-router.put('/:programId/workouts', programsController.addProgramWorkout)
+router.put('/:programId/workouts/:workoutId', programsController.addProgramWorkout)
+router.delete('/:programId/workouts/:workoutId', programsController.removeProgramWorkout)
 
 module.exports = router
