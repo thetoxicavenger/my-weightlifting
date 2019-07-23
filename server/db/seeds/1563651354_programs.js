@@ -9,6 +9,10 @@ exports.seed = function(knex, Promise) {
           name: 'Basketball',
           img: 'https://static-s.aa-cdn.net/img/ios/1103794774/bd5f34ce26c67e002e6c0e8981e0c278?v=1'
         },
+        {
+          name: 'Soccer',
+          img: 'https://cdn4.iconfinder.com/data/icons/football-13/64/Football-04-512.png'
+        },
       ]);
     });
 };
