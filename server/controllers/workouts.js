@@ -29,6 +29,13 @@ exports.getWorkoutPrograms = async function (req, res) {
         .select('programs.id', 'programs.name', 'programs.img')
     res.json(programs)
 }
+exports.addWorkoutProgram = async function (req, res) {
+    await knex('programs_workouts').insert({
+        workout_id: req.params.workoutId,
+        program_id: req.params.programId
+    })
+    res.send(200)
+}
 
 // workouts_exercises
 exports.getWorkoutExercises = async function (req, res) {
@@ -37,11 +44,5 @@ exports.getWorkoutExercises = async function (req, res) {
         .select('exercises.id', 'exercises.name', 'exercises.sets', 'exercises.reps', 'exercises.img')
     res.json(exercises)
 }
-exports.addWorkoutProgram = async function (req, res) {
-    await knex('programs_workouts').insert({
-        workout_id: req.params.workoutId,
-        program_id: req.params.programId
-    })
-    res.send(200)
-}
+
 
