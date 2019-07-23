@@ -52,5 +52,11 @@ exports.getWorkoutExercises = async function (req, res) {
         .select('exercises.id', 'exercises.name', 'exercises.sets', 'exercises.reps', 'exercises.img')
     res.json(exercises)
 }
-
+exports.addWorkoutExercise = async function (req, res) {
+    await knex('workouts_exercises').insert({
+        workout_id: req.params.workoutId,
+        exercise_id: req.params.exerciseId
+    })
+    res.send(200)
+}
 
