@@ -59,4 +59,11 @@ exports.addWorkoutExercise = async function (req, res) {
     })
     res.send(200)
 }
-
+exports.removeWorkoutExercise = async function (req, res) {
+    await knex('workouts_exercises').where({
+        workout_id: req.params.workoutId,
+        exercise_id: req.params.exerciseId
+    })
+    .del()
+    res.send(200)
+}
