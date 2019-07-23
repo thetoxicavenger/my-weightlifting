@@ -17,5 +17,6 @@ router.delete('/:exerciseId/programs/:programId', exercisesController.removeExer
 // exerciseWorkouts
 router.get('/:exerciseId/workouts', exercisesController.getExerciseWorkouts)
 router.put('/:exerciseId/workouts/:workoutId', exercisesController.addExerciseWorkout)
+router.delete('/:exerciseId/workouts/:workoutId', exercisesController.removeExerciseWorkout)
 
 module.exports = router
